@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Cpu, Zap, ShieldCheck, Star } from 'lucide-react'
+import AIProcessor3D from '../three/AIProcessor3D'
 
 const milestones = [
   {
@@ -126,30 +127,9 @@ export function PCBSection() {
               </span>
             </div>
 
-            {/* Central Graphic: Futuristic Edge Board Schema */}
-            <div className="relative z-10 my-auto flex flex-col items-center text-center p-4">
-              <div
-                className="w-24 h-24 rounded-3xl flex items-center justify-center mb-5 transition-transform duration-500 group-hover:scale-105"
-                style={{
-                  background: 'rgba(5,8,22,0.85)',
-                  border: '1px solid rgba(56,189,248,0.3)',
-                  boxShadow: '0 0 40px rgba(37,99,235,0.4)',
-                }}
-              >
-                <Cpu size={44} className="text-sky-400" />
-              </div>
-              <h3
-                className="text-xl font-bold mb-2"
-                style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#F8FAFC' }}
-              >
-                Custom Edge Silicon &amp; Firmware
-              </h3>
-              <p
-                className="text-xs text-gray-400 max-w-xs"
-                style={{ fontFamily: "'Stack Sans Text', sans-serif" }}
-              >
-                High-density multi-layer PCB design with embedded neural processing units.
-              </p>
+            {/* Interactive 3D AI Processor */}
+            <div className="relative z-10 my-auto w-full h-[340px] flex items-center justify-center">
+              <AIProcessor3D className="w-full h-full" />
             </div>
 
             {/* Bottom Proof Pill Badge */}
