@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+// @ts-ignore
 import PillNav from './PillNav'
 
 const NAV_ITEMS = [

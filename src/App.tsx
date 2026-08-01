@@ -1,4 +1,5 @@
 import { useState } from 'react'
+// @ts-ignore
 import CursorGrid from './components/effects/CursorGrid'
 import { motion, AnimatePresence } from 'framer-motion'
 import { LoadingScreen } from './components/effects/LoadingScreen'

@@ -16,7 +16,6 @@ const isTouch =
   ('ontouchstart' in window || navigator.maxTouchPoints > 0);
 
 const deg2rad = (d: number) => (d * Math.PI) / 180;
-const ROTATE_SPEED = 0.005;
 const INERTIA = 0.925;
 const PARALLAX_MAG = 0.05;
 const PARALLAX_EASE = 0.12;
@@ -270,7 +269,7 @@ const ModelViewer = ({
   fadeIn = false,
   autoRotate = false,
   autoRotateSpeed = 0.3,
-  showScreenshotButton = false,
+  showScreenshotButton: _showScreenshotButton = false,
   onModelLoaded,
 }: ModelViewerProps) => {
   const pivot = useRef(new THREE.Vector3()).current;

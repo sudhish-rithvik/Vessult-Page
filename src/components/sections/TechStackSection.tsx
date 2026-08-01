@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { ArrowRight, Bot, Zap, ShieldCheck, Activity, TrendingUp, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, Bot, Zap, Activity, TrendingUp, CheckCircle2 } from 'lucide-react'
 
 export function TechStackSection() {
   const ref = useRef<HTMLDivElement>(null)
