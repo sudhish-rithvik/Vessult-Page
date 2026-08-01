@@ -11,7 +11,6 @@ import { StatsSection } from './components/sections/StatsSection'
 import { AboutSection } from './components/sections/AboutSection'
 import { ServicesSection } from './components/sections/ServicesSection'
 import { PCBSection } from './components/sections/PCBSection'
-import { FeaturesSection } from './components/sections/FeaturesSection'
 import { IndustriesSection } from './components/sections/IndustriesSection'
 import { ProjectsSection } from './components/sections/ProjectsSection'
 import { WhyVessultSection } from './components/sections/WhyVessultSection'
@@ -89,7 +88,6 @@ function App() {
               {/* 3. SOLUTIONS */}
               <ServicesSection />
               <PCBSection />
-              <FeaturesSection />
 
               {/* 4. INDUSTRIES */}
               <IndustriesSection />
