@@ -29,13 +29,14 @@ function Loader() {
     <Html center>
       <span
         style={{
-          color: '#38BDF8',
+          color: '#2563EB',
           fontFamily: 'monospace',
           fontSize: 14,
+          fontWeight: 'bold',
           whiteSpace: 'nowrap',
         }}
       >
-        Loading… {Math.round(progress)}%
+        Loading 3D Model… {Math.round(progress)}%
       </span>
     </Html>
   );
@@ -102,7 +103,6 @@ function ModelInner({
   const tPar = useRef({ x: 0, y: 0 });
   const cPar = useRef({ x: 0, y: 0 });
 
-  // ✅ Hook called unconditionally at top level
   const { scene } = useGLTF(url);
   const content = useMemo(() => scene.clone(), [scene]);
 
@@ -154,9 +154,8 @@ function ModelInner({
     } else {
       onLoaded?.();
     }
-  }, [content]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [content]);
 
-  // Hover / parallax from mouse
   useEffect(() => {
     if (isTouch) return;
     const mm = (e: PointerEvent) => {
@@ -223,7 +222,8 @@ function ModelInner({
 
 /* ── Public ModelViewer component ──────────────────────────────── */
 export interface ModelViewerProps {
-  url: string;
+  url?: string;
+  modelPath?: string;
   width?: number | string;
   height?: number | string;
   modelXOffset?: number;
@@ -251,8 +251,9 @@ export interface ModelViewerProps {
 
 const ModelViewer = ({
   url,
-  width = 400,
-  height = 400,
+  modelPath,
+  width = '100%',
+  height = '100%',
   modelXOffset = 0,
   modelYOffset = 0,
   defaultRotationX = -50,
@@ -265,15 +266,18 @@ const ModelViewer = ({
   keyLightIntensity = 1,
   fillLightIntensity = 0.5,
   rimLightIntensity = 0.8,
-  environmentPreset = 'night',
+  environmentPreset = 'city',
   fadeIn = false,
   autoRotate = false,
   autoRotateSpeed = 0.3,
   showScreenshotButton: _showScreenshotButton = false,
   onModelLoaded,
 }: ModelViewerProps) => {
+  const targetUrl = url || modelPath || '';
   const pivot = useRef(new THREE.Vector3()).current;
   const camZ = Math.min(Math.max(defaultZoom, minZoomDistance), maxZoomDistance);
+
+  if (!targetUrl) return null;
 
   return (
     <div style={{ width, height, position: 'relative', overflow: 'hidden' }}>
@@ -298,7 +302,7 @@ const ModelViewer = ({
 
         <Suspense fallback={<Loader />}>
           <ModelInner
-            url={url}
+            url={targetUrl}
             xOff={modelXOffset}
             yOff={modelYOffset}
             pivot={pivot}

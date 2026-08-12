@@ -139,7 +139,7 @@ export function PCB3DSection() {
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <ModelViewer modelPath={PCB_MODEL_URL} />
+            <ModelViewer url={PCB_MODEL_URL} modelPath={PCB_MODEL_URL} />
           </motion.div>
         </div>
       </div>
