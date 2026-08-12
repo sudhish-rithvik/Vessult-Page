@@ -48,16 +48,21 @@ export function LoadingScreen({ onComplete }: { onComplete: () => void }) {
             />
           </div>
 
-          {/* Glow orb */}
+          {/* Intense dark blue glow behind logo for visibility */}
           <div
-            className="absolute inset-0 pointer-events-none"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
             style={{
-              background: 'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(37,99,235,0.08) 0%, transparent 70%)',
+              width: '500px',
+              height: '350px',
+              marginTop: '-50px', // Align with logo
+              background: 'radial-gradient(ellipse at center, rgba(15,23,42,0.95) 0%, rgba(30,64,175,0.8) 30%, rgba(37,99,235,0.3) 55%, transparent 75%)',
+              filter: 'blur(16px)',
+              borderRadius: '50%',
             }}
           />
 
           <motion.div
-            className="relative flex flex-col items-center gap-8"
+            className="relative flex flex-col items-center gap-8 z-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
