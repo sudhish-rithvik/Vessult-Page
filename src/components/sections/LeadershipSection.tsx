@@ -1,7 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
-// Using simple placeholder initials instead of real photos
 const leaders = [
   {
     name: 'Dr. Adrian Reyes',
@@ -16,7 +15,7 @@ const leaders = [
     role: 'Chief Technology Officer',
     bio: 'Ex-Google Brain researcher. Co-authored 40+ papers on edge AI. Holds 15 patents in real-time inference systems.',
     initials: 'PN',
-    color: '#38BDF8',
+    color: '#0EA5E9',
     dept: 'Technology',
   },
   {
@@ -24,7 +23,7 @@ const leaders = [
     role: 'VP of Engineering',
     bio: 'Built distributed systems at SpaceX and Tesla. Expert in embedded hardware and robotics integration at enterprise scale.',
     initials: 'MW',
-    color: '#22C55E',
+    color: '#16A34A',
     dept: 'Engineering',
   },
   {
@@ -40,7 +39,7 @@ const leaders = [
     role: 'Chief Revenue Officer',
     bio: 'Built $400M+ enterprise AI revenue pipelines at Siemens and ABB. Leads global sales across 38 countries.',
     initials: 'SA',
-    color: '#EC4899',
+    color: '#DB2777',
     dept: 'Revenue',
   },
   {
@@ -48,7 +47,7 @@ const leaders = [
     role: 'VP of Customer Success',
     bio: '18 years in industrial automation. Architected AI deployment programs across 50+ Fortune 500 accounts globally.',
     initials: 'JO',
-    color: '#F59E0B',
+    color: '#D97706',
     dept: 'Operations',
   },
 ]
@@ -67,11 +66,10 @@ export function LeadershipSection() {
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section className="relative section-padding overflow-hidden" ref={ref}>
-      {/* Background */}
+    <section className="relative section-padding overflow-hidden" ref={ref} style={{ background: '#FFFFFF' }}>
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 60% 40% at 20% 60%, rgba(37,99,235,0.05) 0%, transparent 60%)' }}
+        style={{ background: 'radial-gradient(ellipse 60% 40% at 20% 60%, rgba(37,99,235,0.03) 0%, transparent 60%)' }}
       />
 
       <div className="container-custom relative z-10">
@@ -86,9 +84,9 @@ export function LeadershipSection() {
           <div
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs tracking-widest uppercase mb-6"
             style={{
-              background: 'rgba(37,99,235,0.1)',
-              border: '1px solid rgba(37,99,235,0.25)',
-              color: '#38BDF8',
+              background: 'rgba(37,99,235,0.07)',
+              border: '1px solid rgba(37,99,235,0.2)',
+              color: '#2563EB',
               fontFamily: "'Stack Sans Text', sans-serif",
             }}
           >
@@ -96,11 +94,11 @@ export function LeadershipSection() {
           </div>
           <h2
             className="text-4xl md:text-6xl font-bold mb-5"
-            style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#F8FAFC' }}
+            style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#0F172A' }}
           >
             World-Class{' '}
             <span style={{
-              background: 'linear-gradient(135deg, #2563EB, #38BDF8)',
+              background: 'linear-gradient(135deg, #1E40AF, #2563EB, #38BDF8)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -108,7 +106,7 @@ export function LeadershipSection() {
               Leadership Team
             </span>
           </h2>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif" }}>
+          <p className="text-lg max-w-2xl mx-auto" style={{ color: '#475569', fontFamily: "'Stack Sans Text', sans-serif" }}>
             Our leadership brings decades of experience from NVIDIA, Google, DeepMind, Tesla, and Siemens —
             united by a shared vision for intelligent automation.
           </p>
@@ -121,23 +119,23 @@ export function LeadershipSection() {
               key={i}
               className="relative p-7 rounded-3xl group overflow-hidden"
               style={{
-                background: 'rgba(15,23,42,0.6)',
-                border: '1px solid rgba(255,255,255,0.07)',
-                backdropFilter: 'blur(20px)',
+                background: '#FFFFFF',
+                border: '1px solid rgba(15,23,42,0.08)',
+                boxShadow: '0 2px 16px rgba(15,23,42,0.05)',
               }}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 + i * 0.09 }}
               whileHover={{
-                borderColor: `${leader.color}35`,
-                boxShadow: `0 12px 40px ${leader.color}12`,
+                borderColor: `${leader.color}30`,
+                boxShadow: `0 12px 40px ${leader.color}10`,
                 y: -5,
               }}
             >
               {/* Background glow */}
               <div
                 className="absolute top-0 right-0 w-32 h-32 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                style={{ background: `radial-gradient(circle, ${leader.color}15 0%, transparent 70%)` }}
+                style={{ background: `radial-gradient(circle, ${leader.color}08 0%, transparent 70%)` }}
               />
 
               <div className="flex items-start gap-4 mb-5">
@@ -145,8 +143,8 @@ export function LeadershipSection() {
                 <div
                   className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 text-lg font-bold text-white"
                   style={{
-                    background: `linear-gradient(135deg, ${leader.color} 0%, ${leader.color}99 100%)`,
-                    boxShadow: `0 0 20px ${leader.color}40`,
+                    background: `linear-gradient(135deg, ${leader.color} 0%, ${leader.color}CC 100%)`,
+                    boxShadow: `0 4px 16px ${leader.color}30`,
                     fontFamily: "'Stack Sans Text', sans-serif",
                   }}
                 >
@@ -156,7 +154,7 @@ export function LeadershipSection() {
                 <div className="flex-1 min-w-0">
                   <div
                     className="font-bold text-base leading-snug mb-0.5"
-                    style={{ color: '#F8FAFC', fontFamily: "'Stack Sans Text', sans-serif" }}
+                    style={{ color: '#0F172A', fontFamily: "'Stack Sans Text', sans-serif" }}
                   >
                     {leader.name}
                   </div>
@@ -180,8 +178,8 @@ export function LeadershipSection() {
               <span
                 className="text-[10px] px-2.5 py-0.5 rounded-full font-medium tracking-wide"
                 style={{
-                  background: `${leader.color}12`,
-                  border: `1px solid ${leader.color}25`,
+                  background: `${leader.color}10`,
+                  border: `1px solid ${leader.color}22`,
                   color: leader.color,
                   fontFamily: "'Stack Sans Text', sans-serif",
                 }}
@@ -192,7 +190,7 @@ export function LeadershipSection() {
               {/* Bottom accent */}
               <div
                 className="absolute bottom-0 left-0 right-0 h-px scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
-                style={{ background: `linear-gradient(90deg, transparent, ${leader.color}60, transparent)` }}
+                style={{ background: `linear-gradient(90deg, transparent, ${leader.color}50, transparent)` }}
               />
             </motion.div>
           ))}
@@ -201,7 +199,7 @@ export function LeadershipSection() {
         {/* Divider */}
         <div
           className="h-px mb-20"
-          style={{ background: 'linear-gradient(90deg, transparent, rgba(37,99,235,0.3), rgba(56,189,248,0.3), transparent)' }}
+          style={{ background: 'linear-gradient(90deg, transparent, rgba(37,99,235,0.2), rgba(56,189,248,0.2), transparent)' }}
         />
 
         {/* Awards section */}
@@ -214,9 +212,9 @@ export function LeadershipSection() {
             <div
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs tracking-widest uppercase mb-5"
               style={{
-                background: 'rgba(245,158,11,0.1)',
-                border: '1px solid rgba(245,158,11,0.25)',
-                color: '#F59E0B',
+                background: 'rgba(217,119,6,0.07)',
+                border: '1px solid rgba(217,119,6,0.2)',
+                color: '#D97706',
                 fontFamily: "'Stack Sans Text', sans-serif",
               }}
             >
@@ -224,11 +222,11 @@ export function LeadershipSection() {
             </div>
             <h3
               className="text-3xl md:text-4xl font-bold"
-              style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#F8FAFC' }}
+              style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#0F172A' }}
             >
               Awards &{' '}
               <span style={{
-                background: 'linear-gradient(135deg, #F59E0B, #F97316)',
+                background: 'linear-gradient(135deg, #D97706, #EA580C)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
@@ -244,24 +242,25 @@ export function LeadershipSection() {
                 key={i}
                 className="flex items-center gap-4 p-5 rounded-2xl group"
                 style={{
-                  background: 'rgba(15,23,42,0.5)',
-                  border: '1px solid rgba(245,158,11,0.1)',
+                  background: '#FFFFFF',
+                  border: '1px solid rgba(217,119,6,0.12)',
+                  boxShadow: '0 2px 10px rgba(15,23,42,0.04)',
                 }}
                 initial={{ opacity: 0, x: -20 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.4 + i * 0.07 }}
                 whileHover={{
-                  borderColor: 'rgba(245,158,11,0.3)',
-                  boxShadow: '0 0 20px rgba(245,158,11,0.08)',
+                  borderColor: 'rgba(217,119,6,0.3)',
+                  boxShadow: '0 4px 20px rgba(217,119,6,0.08)',
                 }}
               >
                 {/* Year badge */}
                 <div
                   className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-xs font-bold"
                   style={{
-                    background: 'rgba(245,158,11,0.1)',
-                    border: '1px solid rgba(245,158,11,0.25)',
-                    color: '#F59E0B',
+                    background: 'rgba(217,119,6,0.08)',
+                    border: '1px solid rgba(217,119,6,0.2)',
+                    color: '#D97706',
                     fontFamily: "'Stack Sans Text', sans-serif",
                   }}
                 >
@@ -269,7 +268,7 @@ export function LeadershipSection() {
                 </div>
                 <span
                   className="text-sm font-medium leading-snug"
-                  style={{ color: '#CBD5E1', fontFamily: "'Stack Sans Text', sans-serif" }}
+                  style={{ color: '#334155', fontFamily: "'Stack Sans Text', sans-serif" }}
                 >
                   {award.title}
                 </span>

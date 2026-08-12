@@ -48,30 +48,30 @@ function TestimonialCard({ t, delay }: { t: typeof testimonials[0]; delay: numbe
   return (
     <motion.div
       ref={ref}
-      className="relative flex-shrink-0 w-80 p-6 rounded-2xl"
+      className="relative flex-shrink-0 p-6 rounded-2xl"
       style={{
-        background: 'rgba(15,23,42,0.7)',
-        border: '1px solid rgba(255,255,255,0.08)',
-        backdropFilter: 'blur(20px)',
+        background: '#FFFFFF',
+        border: '1px solid rgba(15,23,42,0.08)',
+        boxShadow: '0 2px 16px rgba(15,23,42,0.05)',
       }}
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay }}
       whileHover={{
-        borderColor: 'rgba(37,99,235,0.3)',
-        boxShadow: '0 0 30px rgba(37,99,235,0.1)',
+        borderColor: 'rgba(37,99,235,0.25)',
+        boxShadow: '0 8px 32px rgba(37,99,235,0.1)',
         y: -4,
       }}
     >
       <Quote
         size={24}
         className="mb-4"
-        style={{ color: '#2563EB', opacity: 0.6 }}
+        style={{ color: '#2563EB', opacity: 0.5 }}
       />
 
       <p
         className="text-sm leading-relaxed mb-6"
-        style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif", lineHeight: '1.7' }}
+        style={{ color: '#475569', fontFamily: "'Stack Sans Text', sans-serif", lineHeight: '1.7' }}
       >
         "{t.text}"
       </p>
@@ -80,13 +80,13 @@ function TestimonialCard({ t, delay }: { t: typeof testimonials[0]; delay: numbe
         <div>
           <div
             className="font-semibold text-sm"
-            style={{ color: '#F8FAFC', fontFamily: "'Stack Sans Text', sans-serif" }}
+            style={{ color: '#0F172A', fontFamily: "'Stack Sans Text', sans-serif" }}
           >
             {t.name}
           </div>
           <div
             className="text-xs mt-0.5"
-            style={{ color: '#64748B', fontFamily: "'Stack Sans Text', sans-serif" }}
+            style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif" }}
           >
             {t.role}
           </div>
@@ -106,10 +106,10 @@ export function TestimonialsSection() {
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section className="relative section-padding overflow-hidden" ref={ref}>
+    <section className="relative section-padding overflow-hidden" ref={ref} style={{ background: '#F8FAFC' }}>
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 60% 40% at 30% 50%, rgba(56,189,248,0.04) 0%, transparent 60%)' }}
+        style={{ background: 'radial-gradient(ellipse 60% 40% at 30% 50%, rgba(37,99,235,0.03) 0%, transparent 60%)' }}
       />
 
       <div className="container-custom">
@@ -123,9 +123,9 @@ export function TestimonialsSection() {
           <div
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs tracking-widest uppercase mb-6"
             style={{
-              background: 'rgba(37,99,235,0.1)',
-              border: '1px solid rgba(37,99,235,0.25)',
-              color: '#38BDF8',
+              background: 'rgba(37,99,235,0.07)',
+              border: '1px solid rgba(37,99,235,0.2)',
+              color: '#2563EB',
               fontFamily: "'Stack Sans Text', sans-serif",
             }}
           >
@@ -133,11 +133,11 @@ export function TestimonialsSection() {
           </div>
           <h2
             className="text-4xl md:text-6xl font-bold mb-6"
-            style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#F8FAFC' }}
+            style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#0F172A' }}
           >
             Trusted by{' '}
             <span style={{
-              background: 'linear-gradient(135deg, #2563EB, #38BDF8)',
+              background: 'linear-gradient(135deg, #1E40AF, #2563EB, #38BDF8)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',

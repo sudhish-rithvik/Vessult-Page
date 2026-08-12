@@ -13,7 +13,7 @@ export function NotFoundPage() {
   return (
     <section
       className="relative min-h-screen flex flex-col items-center justify-center text-center px-4"
-      style={{ background: '#050816', paddingTop: '110px' }}
+      style={{ background: '#FFFFFF', paddingTop: '110px' }}
     >
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -25,7 +25,7 @@ export function NotFoundPage() {
           className="text-8xl font-extrabold"
           style={{
             fontFamily: "'Stack Sans Text', sans-serif",
-            background: 'linear-gradient(135deg, #2563EB, #38BDF8)',
+            background: 'linear-gradient(135deg, #1E40AF, #2563EB, #38BDF8)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
@@ -35,21 +35,21 @@ export function NotFoundPage() {
         </div>
         <h1
           className="text-2xl font-bold"
-          style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#F8FAFC' }}
+          style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#0F172A' }}
         >
           Page Not Found
         </h1>
-        <p style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif" }}>
+        <p style={{ color: '#475569', fontFamily: "'Stack Sans Text', sans-serif" }}>
           Redirecting you to the home page...
         </p>
         <motion.button
           onClick={() => navigate('/')}
           className="px-6 py-3 rounded-full text-sm font-semibold"
           style={{
-            background: 'linear-gradient(135deg, #2563EB, #1d4ed8)',
-            color: '#F8FAFC',
+            background: 'linear-gradient(135deg, #2563EB, #1D4ED8)',
+            color: '#FFFFFF',
             fontFamily: "'Stack Sans Text', sans-serif",
-            boxShadow: '0 0 24px rgba(37,99,235,0.35)',
+            boxShadow: '0 4px 20px rgba(37,99,235,0.3)',
           }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}

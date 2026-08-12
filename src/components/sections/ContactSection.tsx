@@ -4,9 +4,16 @@ import { Mail, Phone, MapPin, Send, ArrowRight, Loader2 } from 'lucide-react'
 
 const contactInfo = [
   { icon: Mail, label: 'Email', value: 'hello@vesseltsystems.com', color: '#2563EB' },
-  { icon: Phone, label: 'Phone', value: '+1 (800) VESSULT', color: '#38BDF8' },
-  { icon: MapPin, label: 'Address', value: 'Innovation District, Tech City', color: '#22C55E' },
+  { icon: Phone, label: 'Phone', value: '+1 (800) VESSULT', color: '#0EA5E9' },
+  { icon: MapPin, label: 'Address', value: 'Innovation District, Tech City', color: '#16A34A' },
 ]
+
+const inputStyle = {
+  background: '#F8FAFC',
+  border: '1px solid rgba(15,23,42,0.12)',
+  color: '#0F172A',
+  fontFamily: "'Stack Sans Text', sans-serif",
+}
 
 export function ContactSection() {
   const ref = useRef<HTMLDivElement>(null)
@@ -24,12 +31,17 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="relative section-padding overflow-hidden" ref={ref}>
+    <section
+      id="contact"
+      className="relative section-padding overflow-hidden"
+      ref={ref}
+      style={{ background: '#F8FAFC', paddingTop: '110px' }}
+    >
       {/* Background */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse 80% 50% at 50% 100%, rgba(37,99,235,0.08) 0%, transparent 60%)',
+          background: 'radial-gradient(ellipse 80% 50% at 50% 100%, rgba(37,99,235,0.04) 0%, transparent 60%)',
         }}
       />
 
@@ -44,9 +56,9 @@ export function ContactSection() {
           <div
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs tracking-widest uppercase mb-6"
             style={{
-              background: 'rgba(37,99,235,0.1)',
-              border: '1px solid rgba(37,99,235,0.25)',
-              color: '#38BDF8',
+              background: 'rgba(37,99,235,0.07)',
+              border: '1px solid rgba(37,99,235,0.2)',
+              color: '#2563EB',
               fontFamily: "'Stack Sans Text', sans-serif",
             }}
           >
@@ -54,11 +66,11 @@ export function ContactSection() {
           </div>
           <h2
             className="text-4xl md:text-6xl font-bold mb-6 leading-tight"
-            style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#F8FAFC' }}
+            style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#0F172A' }}
           >
             Let's Build{' '}
             <span style={{
-              background: 'linear-gradient(135deg, #2563EB, #38BDF8, #22C55E)',
+              background: 'linear-gradient(135deg, #1E40AF, #2563EB, #38BDF8)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -69,7 +81,7 @@ export function ContactSection() {
           </h2>
           <p
             className="text-lg max-w-2xl mx-auto"
-            style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif" }}
+            style={{ color: '#64748B', fontFamily: "'Stack Sans Text', sans-serif" }}
           >
             Ready to transform your operations with AI? Tell us about your challenge and we'll architect the solution.
           </p>
@@ -86,24 +98,24 @@ export function ContactSection() {
               <div
                 className="flex flex-col items-center justify-center text-center p-12 rounded-2xl h-full"
                 style={{
-                  background: 'rgba(15,23,42,0.6)',
-                  border: '1px solid rgba(34,197,94,0.3)',
-                  boxShadow: '0 0 40px rgba(34,197,94,0.1)',
+                  background: '#FFFFFF',
+                  border: '1px solid rgba(22,163,74,0.25)',
+                  boxShadow: '0 4px 24px rgba(22,163,74,0.08)',
                 }}
               >
                 <div
                   className="w-16 h-16 rounded-full flex items-center justify-center mb-6"
-                  style={{ background: 'rgba(34,197,94,0.15)', border: '1px solid rgba(34,197,94,0.4)' }}
+                  style={{ background: 'rgba(22,163,74,0.1)', border: '1px solid rgba(22,163,74,0.3)' }}
                 >
-                  <ArrowRight size={28} style={{ color: '#22C55E' }} />
+                  <ArrowRight size={28} style={{ color: '#16A34A' }} />
                 </div>
                 <h3
                   className="text-2xl font-bold mb-3"
-                  style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#F8FAFC' }}
+                  style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#0F172A' }}
                 >
                   Message Received!
                 </h3>
-                <p style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif" }}>
+                <p style={{ color: '#64748B', fontFamily: "'Stack Sans Text', sans-serif" }}>
                   Our team will get back to you within 24 hours with a tailored proposal.
                 </p>
               </div>
@@ -112,9 +124,9 @@ export function ContactSection() {
                 onSubmit={handleSubmit}
                 className="flex flex-col gap-4 p-8 rounded-2xl"
                 style={{
-                  background: 'rgba(15,23,42,0.6)',
-                  border: '1px solid rgba(255,255,255,0.07)',
-                  backdropFilter: 'blur(20px)',
+                  background: '#FFFFFF',
+                  border: '1px solid rgba(15,23,42,0.08)',
+                  boxShadow: '0 4px 24px rgba(15,23,42,0.06)',
                 }}
               >
                 <div className="grid grid-cols-2 gap-4">
@@ -131,14 +143,9 @@ export function ContactSection() {
                       value={form.name}
                       onChange={e => setForm(p => ({ ...p, name: e.target.value }))}
                       className="px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200"
-                      style={{
-                        background: 'rgba(255,255,255,0.04)',
-                        border: '1px solid rgba(255,255,255,0.08)',
-                        color: '#F8FAFC',
-                        fontFamily: "'Stack Sans Text', sans-serif",
-                      }}
-                      onFocus={e => { e.target.style.borderColor = 'rgba(37,99,235,0.5)' }}
-                      onBlur={e => { e.target.style.borderColor = 'rgba(255,255,255,0.08)' }}
+                      style={inputStyle}
+                      onFocus={e => { e.target.style.borderColor = 'rgba(37,99,235,0.4)'; e.target.style.boxShadow = '0 0 0 3px rgba(37,99,235,0.08)' }}
+                      onBlur={e => { e.target.style.borderColor = 'rgba(15,23,42,0.12)'; e.target.style.boxShadow = 'none' }}
                     />
                   </div>
                   <div className="flex flex-col gap-2">
@@ -153,14 +160,9 @@ export function ContactSection() {
                       value={form.company}
                       onChange={e => setForm(p => ({ ...p, company: e.target.value }))}
                       className="px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200"
-                      style={{
-                        background: 'rgba(255,255,255,0.04)',
-                        border: '1px solid rgba(255,255,255,0.08)',
-                        color: '#F8FAFC',
-                        fontFamily: "'Stack Sans Text', sans-serif",
-                      }}
-                      onFocus={e => { e.target.style.borderColor = 'rgba(37,99,235,0.5)' }}
-                      onBlur={e => { e.target.style.borderColor = 'rgba(255,255,255,0.08)' }}
+                      style={inputStyle}
+                      onFocus={e => { e.target.style.borderColor = 'rgba(37,99,235,0.4)'; e.target.style.boxShadow = '0 0 0 3px rgba(37,99,235,0.08)' }}
+                      onBlur={e => { e.target.style.borderColor = 'rgba(15,23,42,0.12)'; e.target.style.boxShadow = 'none' }}
                     />
                   </div>
                 </div>
@@ -178,14 +180,9 @@ export function ContactSection() {
                     value={form.email}
                     onChange={e => setForm(p => ({ ...p, email: e.target.value }))}
                     className="px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200"
-                    style={{
-                      background: 'rgba(255,255,255,0.04)',
-                      border: '1px solid rgba(255,255,255,0.08)',
-                      color: '#F8FAFC',
-                      fontFamily: "'Stack Sans Text', sans-serif",
-                    }}
-                    onFocus={e => { e.target.style.borderColor = 'rgba(37,99,235,0.5)' }}
-                    onBlur={e => { e.target.style.borderColor = 'rgba(255,255,255,0.08)' }}
+                    style={inputStyle}
+                    onFocus={e => { e.target.style.borderColor = 'rgba(37,99,235,0.4)'; e.target.style.boxShadow = '0 0 0 3px rgba(37,99,235,0.08)' }}
+                    onBlur={e => { e.target.style.borderColor = 'rgba(15,23,42,0.12)'; e.target.style.boxShadow = 'none' }}
                   />
                 </div>
 
@@ -200,14 +197,9 @@ export function ContactSection() {
                     value={form.service}
                     onChange={e => setForm(p => ({ ...p, service: e.target.value }))}
                     className="px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200 appearance-none"
-                    style={{
-                      background: 'rgba(15,23,42,0.9)',
-                      border: '1px solid rgba(255,255,255,0.08)',
-                      color: form.service ? '#F8FAFC' : '#64748B',
-                      fontFamily: "'Stack Sans Text', sans-serif",
-                    }}
-                    onFocus={e => { e.target.style.borderColor = 'rgba(37,99,235,0.5)' }}
-                    onBlur={e => { e.target.style.borderColor = 'rgba(255,255,255,0.08)' }}
+                    style={{ ...inputStyle, color: form.service ? '#0F172A' : '#94A3B8' }}
+                    onFocus={e => { e.target.style.borderColor = 'rgba(37,99,235,0.4)' }}
+                    onBlur={e => { e.target.style.borderColor = 'rgba(15,23,42,0.12)' }}
                   >
                     <option value="" disabled>Select a service...</option>
                     <option value="ai">Artificial Intelligence</option>
@@ -234,14 +226,9 @@ export function ContactSection() {
                     onChange={e => setForm(p => ({ ...p, message: e.target.value }))}
                     placeholder="Describe your challenge, goals, and timeline..."
                     className="px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200 resize-none"
-                    style={{
-                      background: 'rgba(255,255,255,0.04)',
-                      border: '1px solid rgba(255,255,255,0.08)',
-                      color: '#F8FAFC',
-                      fontFamily: "'Stack Sans Text', sans-serif",
-                    }}
-                    onFocus={e => { e.target.style.borderColor = 'rgba(37,99,235,0.5)' }}
-                    onBlur={e => { e.target.style.borderColor = 'rgba(255,255,255,0.08)' }}
+                    style={inputStyle}
+                    onFocus={e => { e.target.style.borderColor = 'rgba(37,99,235,0.4)'; e.target.style.boxShadow = '0 0 0 3px rgba(37,99,235,0.08)' }}
+                    onBlur={e => { e.target.style.borderColor = 'rgba(15,23,42,0.12)'; e.target.style.boxShadow = 'none' }}
                   />
                 </div>
 
@@ -250,13 +237,13 @@ export function ContactSection() {
                   disabled={sending}
                   className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-sm mt-2"
                   style={{
-                    background: 'linear-gradient(135deg, #2563EB, #1d4ed8)',
-                    color: '#F8FAFC',
-                    boxShadow: '0 0 30px rgba(37,99,235,0.3)',
+                    background: 'linear-gradient(135deg, #2563EB, #1D4ED8)',
+                    color: '#FFFFFF',
+                    boxShadow: '0 4px 20px rgba(37,99,235,0.3)',
                     fontFamily: "'Stack Sans Text', sans-serif",
                     letterSpacing: '0.02em',
                   }}
-                  whileHover={{ scale: 1.02, boxShadow: '0 0 40px rgba(37,99,235,0.5)' }}
+                  whileHover={{ scale: 1.02, boxShadow: '0 6px 28px rgba(37,99,235,0.45)' }}
                   whileTap={{ scale: 0.98 }}
                 >
                   {sending ? (
@@ -282,13 +269,13 @@ export function ContactSection() {
             <div>
               <h3
                 className="text-2xl font-bold mb-3"
-                style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#F8FAFC' }}
+                style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#0F172A' }}
               >
                 Get in Touch
               </h3>
               <p
                 className="text-sm leading-relaxed"
-                style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif" }}
+                style={{ color: '#64748B', fontFamily: "'Stack Sans Text', sans-serif" }}
               >
                 Ready to start? Have a question? Our engineering team responds within 24 hours. For urgent inquiries, reach us directly.
               </p>
@@ -303,19 +290,20 @@ export function ContactSection() {
                     key={i}
                     className="flex items-center gap-4 p-5 rounded-xl group"
                     style={{
-                      background: 'rgba(15,23,42,0.5)',
-                      border: '1px solid rgba(255,255,255,0.06)',
+                      background: '#FFFFFF',
+                      border: '1px solid rgba(15,23,42,0.08)',
+                      boxShadow: '0 2px 10px rgba(15,23,42,0.04)',
                     }}
                     initial={{ opacity: 0, x: 20 }}
                     animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
-                    whileHover={{ borderColor: `${info.color}30`, x: 4 }}
+                    whileHover={{ borderColor: `${info.color}30`, x: 4, boxShadow: `0 4px 20px ${info.color}10` }}
                   >
                     <div
                       className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
                       style={{
-                        background: `${info.color}15`,
-                        border: `1px solid ${info.color}30`,
+                        background: `${info.color}0D`,
+                        border: `1px solid ${info.color}25`,
                       }}
                     >
                       <Icon size={20} style={{ color: info.color }} />
@@ -323,13 +311,13 @@ export function ContactSection() {
                     <div>
                       <div
                         className="text-xs tracking-wider uppercase mb-0.5"
-                        style={{ color: '#64748B', fontFamily: "'Stack Sans Text', sans-serif" }}
+                        style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif" }}
                       >
                         {info.label}
                       </div>
                       <div
                         className="text-sm font-medium"
-                        style={{ color: '#F8FAFC', fontFamily: "'Stack Sans Text', sans-serif" }}
+                        style={{ color: '#0F172A', fontFamily: "'Stack Sans Text', sans-serif" }}
                       >
                         {info.value}
                       </div>
@@ -343,8 +331,8 @@ export function ContactSection() {
             <div
               className="p-6 rounded-2xl"
               style={{
-                background: 'rgba(37,99,235,0.08)',
-                border: '1px solid rgba(37,99,235,0.2)',
+                background: 'rgba(37,99,235,0.05)',
+                border: '1px solid rgba(37,99,235,0.15)',
               }}
             >
               <div className="flex items-center gap-3 mb-3">
@@ -354,16 +342,16 @@ export function ContactSection() {
                 />
                 <span
                   className="text-sm font-semibold"
-                  style={{ color: '#F8FAFC', fontFamily: "'Stack Sans Text', sans-serif" }}
+                  style={{ color: '#0F172A', fontFamily: "'Stack Sans Text', sans-serif" }}
                 >
                   Team Online
                 </span>
               </div>
               <p
                 className="text-sm"
-                style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif" }}
+                style={{ color: '#64748B', fontFamily: "'Stack Sans Text', sans-serif" }}
               >
-                Average response time: <span style={{ color: '#38BDF8' }}>under 2 hours</span>. We typically respond the same business day.
+                Average response time: <span style={{ color: '#2563EB', fontWeight: 600 }}>under 2 hours</span>. We typically respond the same business day.
               </p>
             </div>
           </motion.div>

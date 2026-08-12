@@ -10,7 +10,6 @@ const features = [
     icon: Activity,
     color: '#2563EB',
     points: ['60+ FPS Processing', '<10ms End-to-end Latency', 'TensorRT Acceleration', 'Multi-stream Parallel Processing'],
-    imageGradient: 'from-blue-900/40 via-blue-950/60 to-slate-950/80',
     bgGlow: '#2563EB',
     side: 'right',
   },
@@ -19,10 +18,9 @@ const features = [
     title: 'Models That Learn Your World',
     description: 'Unlike generic AI, our systems are trained on your environment, your defects, your products. Continuous active learning keeps accuracy above 99% even as conditions change.',
     icon: GitBranch,
-    color: '#22C55E',
+    color: '#16A34A',
     points: ['Custom Dataset Collection', 'Automated Retraining', 'Active Learning Loops', 'Domain-specific Accuracy'],
-    imageGradient: 'from-green-900/40 via-green-950/60 to-slate-950/80',
-    bgGlow: '#22C55E',
+    bgGlow: '#16A34A',
     side: 'left',
   },
   {
@@ -30,10 +28,9 @@ const features = [
     title: 'From Sensor to Dashboard',
     description: 'A complete technology stack: hardware selection, firmware development, AI model training, cloud infrastructure, and the analytics dashboard your team actually uses.',
     icon: Layers,
-    color: '#38BDF8',
+    color: '#0EA5E9',
     points: ['Full Hardware Stack', 'Cloud + Edge Hybrid', 'Real-time Dashboards', 'API-first Architecture'],
-    imageGradient: 'from-sky-900/40 via-sky-950/60 to-slate-950/80',
-    bgGlow: '#38BDF8',
+    bgGlow: '#0EA5E9',
     side: 'right',
   },
   {
@@ -43,7 +40,6 @@ const features = [
     icon: Shield,
     color: '#7C3AED',
     points: ['ISO-compliant Development', '99.9% Uptime SLA', '24/7 Monitoring', 'Military-grade Encryption'],
-    imageGradient: 'from-violet-900/40 via-violet-950/60 to-slate-950/80',
     bgGlow: '#7C3AED',
     side: 'left',
   },
@@ -54,10 +50,13 @@ export function FeaturesSection() {
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section className="relative section-padding overflow-hidden" ref={ref}>
+    <section className="relative section-padding overflow-hidden" ref={ref} style={{ background: '#FFFFFF' }}>
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(15,23,42,0.6) 0%, transparent 70%)' }}
+        style={{
+          backgroundImage: `linear-gradient(rgba(37,99,235,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.03) 1px, transparent 1px)`,
+          backgroundSize: '48px 48px',
+        }}
       />
 
       <div className="container-custom">
@@ -71,9 +70,9 @@ export function FeaturesSection() {
           <div
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs tracking-widest uppercase mb-6"
             style={{
-              background: 'rgba(37,99,235,0.1)',
-              border: '1px solid rgba(37,99,235,0.25)',
-              color: '#38BDF8',
+              background: 'rgba(37,99,235,0.07)',
+              border: '1px solid rgba(37,99,235,0.2)',
+              color: '#2563EB',
               fontFamily: "'Stack Sans Text', sans-serif",
             }}
           >
@@ -81,11 +80,11 @@ export function FeaturesSection() {
           </div>
           <h2
             className="text-4xl md:text-6xl font-bold mb-6"
-            style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#F8FAFC' }}
+            style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#0F172A' }}
           >
             Core{' '}
             <span style={{
-              background: 'linear-gradient(135deg, #2563EB, #38BDF8)',
+              background: 'linear-gradient(135deg, #1E40AF, #2563EB, #38BDF8)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -104,7 +103,7 @@ export function FeaturesSection() {
             return (
               <motion.div
                 key={i}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center`}
+                className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
                 initial={{ opacity: 0, y: 40 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: i * 0.1 }}
@@ -115,8 +114,8 @@ export function FeaturesSection() {
                     <div
                       className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs tracking-widest uppercase mb-4"
                       style={{
-                        background: `${feat.color}15`,
-                        border: `1px solid ${feat.color}30`,
+                        background: `${feat.color}10`,
+                        border: `1px solid ${feat.color}25`,
                         color: feat.color,
                         fontFamily: "'Stack Sans Text', sans-serif",
                       }}
@@ -125,13 +124,13 @@ export function FeaturesSection() {
                     </div>
                     <h3
                       className="text-3xl md:text-4xl font-bold mb-4 leading-tight"
-                      style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#F8FAFC' }}
+                      style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#0F172A' }}
                     >
                       {feat.title}
                     </h3>
                     <p
                       className="text-base leading-relaxed"
-                      style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif", lineHeight: '1.7' }}
+                      style={{ color: '#475569', fontFamily: "'Stack Sans Text', sans-serif", lineHeight: '1.7' }}
                     >
                       {feat.description}
                     </p>
@@ -143,17 +142,17 @@ export function FeaturesSection() {
                         key={j}
                         className="flex items-center gap-2 p-3 rounded-xl"
                         style={{
-                          background: 'rgba(15,23,42,0.5)',
-                          border: '1px solid rgba(255,255,255,0.05)',
+                          background: '#F8FAFC',
+                          border: '1px solid rgba(15,23,42,0.07)',
                         }}
                       >
                         <div
                           className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                          style={{ background: feat.color, boxShadow: `0 0 6px ${feat.color}` }}
+                          style={{ background: feat.color }}
                         />
                         <span
-                          className="text-xs"
-                          style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif" }}
+                          className="text-xs font-medium"
+                          style={{ color: '#334155', fontFamily: "'Stack Sans Text', sans-serif" }}
                         >
                           {point}
                         </span>
@@ -167,16 +166,16 @@ export function FeaturesSection() {
                   <div
                     className="relative h-72 lg:h-96 rounded-2xl overflow-hidden"
                     style={{
-                      background: `linear-gradient(135deg, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0.7) 100%)`,
+                      background: `linear-gradient(135deg, ${feat.color}08 0%, #EFF6FF 100%)`,
                       border: `1px solid ${feat.color}20`,
-                      boxShadow: `0 0 60px ${feat.color}10`,
+                      boxShadow: `0 8px 40px ${feat.color}10`,
                     }}
                   >
                     {/* Animated grid */}
                     <div
                       className="absolute inset-0"
                       style={{
-                        backgroundImage: `linear-gradient(${feat.color}08 1px, transparent 1px), linear-gradient(90deg, ${feat.color}08 1px, transparent 1px)`,
+                        backgroundImage: `linear-gradient(${feat.color}10 1px, transparent 1px), linear-gradient(90deg, ${feat.color}10 1px, transparent 1px)`,
                         backgroundSize: '40px 40px',
                       }}
                     />
@@ -185,12 +184,9 @@ export function FeaturesSection() {
                     <div className="absolute inset-0 flex items-center justify-center">
                       <motion.div
                         className="relative"
-                        animate={{
-                          y: [-10, 10, -10],
-                        }}
+                        animate={{ y: [-10, 10, -10] }}
                         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                       >
-                        {/* Rings */}
                         {[80, 120, 160].map((size, ri) => (
                           <div
                             key={ri}
@@ -201,19 +197,17 @@ export function FeaturesSection() {
                               top: '50%',
                               left: '50%',
                               transform: 'translate(-50%, -50%)',
-                              border: `1px solid ${feat.color}${ri === 0 ? '50' : ri === 1 ? '30' : '15'}`,
+                              border: `1px solid ${feat.color}${ri === 0 ? '40' : ri === 1 ? '25' : '12'}`,
                               animation: `spin-slow ${(ri + 1) * 8}s linear infinite`,
                             }}
                           />
                         ))}
-
-                        {/* Center */}
                         <div
                           className="w-16 h-16 rounded-2xl flex items-center justify-center relative z-10"
                           style={{
-                            background: `${feat.color}20`,
-                            border: `1px solid ${feat.color}50`,
-                            boxShadow: `0 0 30px ${feat.color}30`,
+                            background: `${feat.color}12`,
+                            border: `1px solid ${feat.color}35`,
+                            boxShadow: `0 0 24px ${feat.color}20`,
                           }}
                         >
                           <Icon size={28} style={{ color: feat.color }} />
@@ -226,10 +220,10 @@ export function FeaturesSection() {
                       {['AI', 'LIVE', 'EDGE'].map((tag, ti) => (
                         <div
                           key={ti}
-                          className="px-2 py-0.5 rounded text-xs"
+                          className="px-2 py-0.5 rounded text-xs font-medium"
                           style={{
-                            background: `${feat.color}15`,
-                            border: `1px solid ${feat.color}30`,
+                            background: `${feat.color}10`,
+                            border: `1px solid ${feat.color}25`,
                             color: feat.color,
                             fontFamily: "'Stack Sans Text', sans-serif",
                           }}
@@ -239,10 +233,10 @@ export function FeaturesSection() {
                       ))}
                     </div>
 
-                    {/* Bottom glow */}
+                    {/* Bottom gradient */}
                     <div
                       className="absolute bottom-0 left-0 right-0 h-20"
-                      style={{ background: `linear-gradient(to top, ${feat.color}15, transparent)` }}
+                      style={{ background: `linear-gradient(to top, ${feat.color}10, transparent)` }}
                     />
                   </div>
                 </div>

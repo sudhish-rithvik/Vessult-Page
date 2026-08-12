@@ -30,18 +30,18 @@ export function LoadingScreen({ onComplete }: { onComplete: () => void }) {
       {visible && (
         <motion.div
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center"
-          style={{ background: '#050816' }}
+          style={{ background: '#FFFFFF' }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: 'easeInOut' }}
         >
           {/* Animated grid background */}
           <div className="absolute inset-0 overflow-hidden">
             <div
-              className="absolute inset-0 opacity-10"
+              className="absolute inset-0 opacity-40"
               style={{
                 backgroundImage: `
-                  linear-gradient(rgba(37,99,235,0.3) 1px, transparent 1px),
-                  linear-gradient(90deg, rgba(37,99,235,0.3) 1px, transparent 1px)
+                  linear-gradient(rgba(37,99,235,0.06) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(37,99,235,0.06) 1px, transparent 1px)
                 `,
                 backgroundSize: '60px 60px',
               }}
@@ -52,7 +52,7 @@ export function LoadingScreen({ onComplete }: { onComplete: () => void }) {
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
-              background: 'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(37,99,235,0.12) 0%, transparent 70%)',
+              background: 'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(37,99,235,0.08) 0%, transparent 70%)',
             }}
           />
 
@@ -65,7 +65,7 @@ export function LoadingScreen({ onComplete }: { onComplete: () => void }) {
             {/* Logo */}
             <motion.div
               className="flex flex-col items-center justify-center"
-              animate={{ filter: ['drop-shadow(0 0 15px rgba(37,99,235,0.5))', 'drop-shadow(0 0 30px rgba(56,189,248,0.8))', 'drop-shadow(0 0 15px rgba(37,99,235,0.5))'] }}
+              animate={{ filter: ['drop-shadow(0 4px 15px rgba(37,99,235,0.2))', 'drop-shadow(0 8px 30px rgba(37,99,235,0.4))', 'drop-shadow(0 4px 15px rgba(37,99,235,0.2))'] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
               <Logo size="lg" useImage={true} showTagline={true} />
@@ -74,14 +74,14 @@ export function LoadingScreen({ onComplete }: { onComplete: () => void }) {
             {/* Loading bar */}
             <div className="w-64 flex flex-col gap-2">
               <div
-                className="w-full h-px overflow-hidden"
-                style={{ background: 'rgba(255,255,255,0.1)' }}
+                className="w-full h-1 rounded-full overflow-hidden"
+                style={{ background: 'rgba(15,23,42,0.08)' }}
               >
                 <motion.div
-                  className="h-full"
+                  className="h-full rounded-full"
                   style={{
-                    background: 'linear-gradient(90deg, #2563EB, #38BDF8)',
-                    boxShadow: '0 0 10px #38BDF8',
+                    background: 'linear-gradient(90deg, #1E40AF, #2563EB, #38BDF8)',
+                    boxShadow: '0 2px 8px rgba(37,99,235,0.3)',
                   }}
                   initial={{ width: '0%' }}
                   animate={{ width: `${Math.min(progress, 100)}%` }}
@@ -90,14 +90,14 @@ export function LoadingScreen({ onComplete }: { onComplete: () => void }) {
               </div>
               <div className="flex justify-between items-center">
                 <span
-                  className="text-xs tracking-widest uppercase"
-                  style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif" }}
+                  className="text-xs font-semibold tracking-widest uppercase"
+                  style={{ color: '#475569', fontFamily: "'Stack Sans Text', sans-serif" }}
                 >
                   Initializing
                 </span>
                 <span
-                  className="text-xs font-mono"
-                  style={{ color: '#38BDF8' }}
+                  className="text-xs font-bold font-mono"
+                  style={{ color: '#2563EB' }}
                 >
                   {Math.min(Math.floor(progress), 100)}%
                 </span>
@@ -106,9 +106,9 @@ export function LoadingScreen({ onComplete }: { onComplete: () => void }) {
 
             {/* Tagline */}
             <motion.p
-              className="text-xs tracking-[0.4em] uppercase"
-              style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif" }}
-              animate={{ opacity: [0.4, 1, 0.4] }}
+              className="text-xs font-bold tracking-[0.4em] uppercase"
+              style={{ color: '#64748B', fontFamily: "'Stack Sans Text', sans-serif" }}
+              animate={{ opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
               Engineering Intelligent Vision

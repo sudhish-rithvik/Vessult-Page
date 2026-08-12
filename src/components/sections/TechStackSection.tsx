@@ -11,12 +11,19 @@ export function TechStackSection() {
   const scrollToContact = () => navigate('/contact')
 
   return (
-    <section id="technologies" className="relative py-24 overflow-hidden" ref={ref}>
+    <section id="technologies" className="relative py-24 overflow-hidden" ref={ref} style={{ background: '#FFFFFF' }}>
       {/* Background ambient glow */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background: 'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(37,99,235,0.04) 0%, transparent 70%)',
+        }}
+      />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `linear-gradient(rgba(37,99,235,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.03) 1px, transparent 1px)`,
+          backgroundSize: '48px 48px',
         }}
       />
 
@@ -32,9 +39,9 @@ export function TechStackSection() {
           <span
             className="px-4 py-1 rounded-full text-xs tracking-wider uppercase font-medium"
             style={{
-              background: 'rgba(37,99,235,0.1)',
-              border: '1px solid rgba(37,99,235,0.25)',
-              color: '#38BDF8',
+              background: 'rgba(37,99,235,0.07)',
+              border: '1px solid rgba(37,99,235,0.2)',
+              color: '#2563EB',
               fontFamily: "'Stack Sans Text', sans-serif",
             }}
           >
@@ -43,12 +50,12 @@ export function TechStackSection() {
 
           <h2
             className="text-3xl md:text-5xl font-bold leading-tight"
-            style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#F8FAFC' }}
+            style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#0F172A' }}
           >
             Engineered for{' '}
             <span
               style={{
-                background: 'linear-gradient(90deg, #2563EB 0%, #38BDF8 100%)',
+                background: 'linear-gradient(90deg, #1E40AF 0%, #2563EB 50%, #38BDF8 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
@@ -60,7 +67,7 @@ export function TechStackSection() {
 
           <p
             className="text-sm md:text-base leading-relaxed max-w-xl mx-auto"
-            style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif" }}
+            style={{ color: '#475569', fontFamily: "'Stack Sans Text', sans-serif" }}
           >
             High-performance AI models, low-latency edge computing, and industrial-grade security tailored for mission-critical applications.
           </p>
@@ -73,18 +80,16 @@ export function TechStackSection() {
           <motion.div
             className="relative rounded-3xl p-7 lg:p-8 flex flex-col justify-between min-h-[260px] overflow-hidden group transition-all duration-300"
             style={{
-              background: 'rgba(15,23,42,0.7)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+              background: '#FFFFFF',
+              border: '1px solid rgba(15,23,42,0.08)',
+              boxShadow: '0 4px 20px rgba(15,23,42,0.06)',
             }}
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
             whileHover={{
-              borderColor: 'rgba(56,189,248,0.35)',
-              boxShadow: '0 12px 40px rgba(56,189,248,0.12)',
+              borderColor: 'rgba(37,99,235,0.25)',
+              boxShadow: '0 12px 40px rgba(37,99,235,0.1)',
               y: -4,
             }}
           >
@@ -92,9 +97,9 @@ export function TechStackSection() {
             <span
               className="w-fit px-3 py-1 rounded-full text-[11px] font-medium tracking-wide"
               style={{
-                background: 'rgba(37,99,235,0.12)',
-                border: '1px solid rgba(37,99,235,0.25)',
-                color: '#38BDF8',
+                background: 'rgba(37,99,235,0.08)',
+                border: '1px solid rgba(37,99,235,0.2)',
+                color: '#2563EB',
                 fontFamily: "'Stack Sans Text', sans-serif",
               }}
             >
@@ -104,36 +109,35 @@ export function TechStackSection() {
             {/* Left Content */}
             <div className="max-w-[55%] z-10 my-4">
               <h3
-                className="text-xl font-bold mb-2 leading-snug group-hover:text-white transition-colors"
-                style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#F8FAFC' }}
+                className="text-xl font-bold mb-2 leading-snug"
+                style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#0F172A' }}
               >
-                AI-Powered Vision &amp; Analytics
+                AI-Powered Vision & Analytics
               </h3>
               <p
                 className="text-xs leading-relaxed"
-                style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif" }}
+                style={{ color: '#475569', fontFamily: "'Stack Sans Text', sans-serif" }}
               >
                 Automate and optimize complex inspection tasks with domain-trained AI models.
               </p>
             </div>
 
-            {/* Right Side Graphic: Futuristic Cyber Robot Core */}
+            {/* Right Side Graphic: Robot Core */}
             <div className="absolute right-4 bottom-2 top-2 w-[42%] flex items-center justify-center pointer-events-none">
               <div
                 className="relative w-36 h-36 rounded-full flex items-center justify-center"
                 style={{
-                  background: 'radial-gradient(circle, rgba(37,99,235,0.25) 0%, rgba(15,23,42,0.9) 80%)',
-                  border: '1px solid rgba(56,189,248,0.3)',
-                  boxShadow: '0 0 35px rgba(37,99,235,0.3)',
+                  background: 'radial-gradient(circle, rgba(37,99,235,0.1) 0%, #EFF6FF 80%)',
+                  border: '1px solid rgba(37,99,235,0.2)',
+                  boxShadow: '0 0 24px rgba(37,99,235,0.12)',
                 }}
               >
-                <div className="w-24 h-24 rounded-full border border-dashed border-sky-400/40 flex items-center justify-center animate-spin-slow">
-                  <Bot size={40} className="text-sky-400" />
+                <div className="w-24 h-24 rounded-full border border-dashed flex items-center justify-center animate-spin-slow" style={{ borderColor: 'rgba(37,99,235,0.3)' }}>
+                  <Bot size={40} style={{ color: '#2563EB' }} />
                 </div>
-                {/* Visor Glow Dot */}
                 <div
-                  className="absolute w-2 h-2 rounded-full bg-green-400"
-                  style={{ boxShadow: '0 0 10px #22C55E' }}
+                  className="absolute w-2 h-2 rounded-full bg-green-500"
+                  style={{ boxShadow: '0 0 8px #22C55E' }}
                 />
               </div>
             </div>
@@ -143,18 +147,16 @@ export function TechStackSection() {
           <motion.div
             className="relative rounded-3xl p-7 lg:p-8 flex flex-col justify-between min-h-[260px] overflow-hidden group transition-all duration-300"
             style={{
-              background: 'rgba(15,23,42,0.7)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+              background: '#FFFFFF',
+              border: '1px solid rgba(15,23,42,0.08)',
+              boxShadow: '0 4px 20px rgba(15,23,42,0.06)',
             }}
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
             whileHover={{
-              borderColor: 'rgba(34,197,94,0.35)',
-              boxShadow: '0 12px 40px rgba(34,197,94,0.12)',
+              borderColor: 'rgba(22,163,74,0.3)',
+              boxShadow: '0 12px 40px rgba(22,163,74,0.1)',
               y: -4,
             }}
           >
@@ -162,9 +164,9 @@ export function TechStackSection() {
             <span
               className="w-fit px-3 py-1 rounded-full text-[11px] font-medium tracking-wide"
               style={{
-                background: 'rgba(34,197,94,0.12)',
-                border: '1px solid rgba(34,197,94,0.25)',
-                color: '#22C55E',
+                background: 'rgba(22,163,74,0.08)',
+                border: '1px solid rgba(22,163,74,0.22)',
+                color: '#16A34A',
                 fontFamily: "'Stack Sans Text', sans-serif",
               }}
             >
@@ -174,14 +176,14 @@ export function TechStackSection() {
             {/* Left Content */}
             <div className="max-w-[55%] z-10 my-4">
               <h3
-                className="text-xl font-bold mb-2 leading-snug group-hover:text-white transition-colors"
-                style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#F8FAFC' }}
+                className="text-xl font-bold mb-2 leading-snug"
+                style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#0F172A' }}
               >
-                Ultra-Fast &amp; Real-Time Inference
+                Ultra-Fast & Real-Time Inference
               </h3>
               <p
                 className="text-xs leading-relaxed"
-                style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif" }}
+                style={{ color: '#475569', fontFamily: "'Stack Sans Text', sans-serif" }}
               >
                 Sub-5ms response speeds powered by TensorRT and Jetson hardware.
               </p>
@@ -192,27 +194,27 @@ export function TechStackSection() {
               <div
                 className="w-full p-3.5 rounded-2xl flex flex-col gap-2.5"
                 style={{
-                  background: 'rgba(5,8,22,0.85)',
-                  border: '1px solid rgba(34,197,94,0.25)',
-                  boxShadow: '0 8px 24px rgba(0,0,0,0.5)',
+                  background: '#F0FDF4',
+                  border: '1px solid rgba(22,163,74,0.2)',
+                  boxShadow: '0 4px 16px rgba(22,163,74,0.08)',
                 }}
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] text-gray-400 font-mono">LATENCY</span>
-                  <Zap size={12} className="text-green-400" />
+                  <span className="text-[10px] font-mono" style={{ color: '#64748B' }}>LATENCY</span>
+                  <Zap size={12} style={{ color: '#16A34A' }} />
                 </div>
                 <div className="flex items-baseline gap-1">
-                  <span className="text-xl font-bold text-white font-mono">&lt; 4.2ms</span>
-                  <span className="text-[9px] text-green-400 font-mono">/frame</span>
+                  <span className="text-xl font-bold font-mono" style={{ color: '#0F172A' }}>&lt; 4.2ms</span>
+                  <span className="text-[9px] font-mono" style={{ color: '#16A34A' }}>/frame</span>
                 </div>
-                <div className="space-y-1.5 pt-1 border-t border-gray-800">
-                  <div className="flex justify-between text-[10px] text-gray-400 font-mono">
+                <div className="space-y-1.5 pt-1" style={{ borderTop: '1px solid rgba(22,163,74,0.15)' }}>
+                  <div className="flex justify-between text-[10px] font-mono" style={{ color: '#64748B' }}>
                     <span>Jetson Orin</span>
-                    <span className="text-emerald-400">99.8% FPS</span>
+                    <span style={{ color: '#16A34A' }}>99.8% FPS</span>
                   </div>
-                  <div className="flex justify-between text-[10px] text-gray-400 font-mono">
+                  <div className="flex justify-between text-[10px] font-mono" style={{ color: '#64748B' }}>
                     <span>ONNX Engine</span>
-                    <span className="text-sky-400 font-mono">60 FPS</span>
+                    <span style={{ color: '#2563EB' }}>60 FPS</span>
                   </div>
                 </div>
               </div>
@@ -223,18 +225,16 @@ export function TechStackSection() {
           <motion.div
             className="relative rounded-3xl p-7 lg:p-8 flex flex-col justify-between min-h-[260px] overflow-hidden group transition-all duration-300"
             style={{
-              background: 'rgba(15,23,42,0.7)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+              background: '#FFFFFF',
+              border: '1px solid rgba(15,23,42,0.08)',
+              boxShadow: '0 4px 20px rgba(15,23,42,0.06)',
             }}
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
             whileHover={{
-              borderColor: 'rgba(37,99,235,0.35)',
-              boxShadow: '0 12px 40px rgba(37,99,235,0.12)',
+              borderColor: 'rgba(37,99,235,0.25)',
+              boxShadow: '0 12px 40px rgba(37,99,235,0.1)',
               y: -4,
             }}
           >
@@ -242,9 +242,9 @@ export function TechStackSection() {
             <span
               className="w-fit px-3 py-1 rounded-full text-[11px] font-medium tracking-wide"
               style={{
-                background: 'rgba(37,99,235,0.12)',
-                border: '1px solid rgba(37,99,235,0.25)',
-                color: '#38BDF8',
+                background: 'rgba(37,99,235,0.08)',
+                border: '1px solid rgba(37,99,235,0.2)',
+                color: '#2563EB',
                 fontFamily: "'Stack Sans Text', sans-serif",
               }}
             >
@@ -254,14 +254,14 @@ export function TechStackSection() {
             {/* Left Content */}
             <div className="max-w-[55%] z-10 my-4">
               <h3
-                className="text-xl font-bold mb-2 leading-snug group-hover:text-white transition-colors"
-                style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#F8FAFC' }}
+                className="text-xl font-bold mb-2 leading-snug"
+                style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#0F172A' }}
               >
                 Sub-Millimeter QC Accuracy
               </h3>
               <p
                 className="text-xs leading-relaxed"
-                style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif" }}
+                style={{ color: '#475569', fontFamily: "'Stack Sans Text', sans-serif" }}
               >
                 99.4%+ defect accuracy ensures zero-fault manufacturing output.
               </p>
@@ -272,34 +272,25 @@ export function TechStackSection() {
               <div
                 className="w-full p-3.5 rounded-2xl flex flex-col gap-2"
                 style={{
-                  background: 'rgba(5,8,22,0.85)',
-                  border: '1px solid rgba(56,189,248,0.25)',
-                  boxShadow: '0 8px 24px rgba(0,0,0,0.5)',
+                  background: '#EFF6FF',
+                  border: '1px solid rgba(37,99,235,0.18)',
+                  boxShadow: '0 4px 16px rgba(37,99,235,0.08)',
                 }}
               >
-                <div className="flex items-center justify-between text-[10px] text-gray-400 font-mono">
+                <div className="flex items-center justify-between text-[10px] font-mono" style={{ color: '#64748B' }}>
                   <span>QC ACCURACY</span>
-                  <CheckCircle2 size={12} className="text-sky-400" />
+                  <CheckCircle2 size={12} style={{ color: '#2563EB' }} />
                 </div>
-                <div className="text-xl font-bold text-white font-mono flex items-center gap-1.5">
+                <div className="text-xl font-bold font-mono flex items-center gap-1.5" style={{ color: '#0F172A' }}>
                   99.4%
-                  <span className="text-[10px] text-emerald-400 flex items-center font-normal">
+                  <span className="text-[10px] flex items-center font-normal" style={{ color: '#16A34A' }}>
                     <TrendingUp size={10} className="mr-0.5" /> +2.5%
                   </span>
                 </div>
-                {/* SVG Mini Waveform Chart */}
                 <div className="h-10 w-full pt-1">
                   <svg className="w-full h-full" viewBox="0 0 100 30" preserveAspectRatio="none">
-                    <path
-                      d="M0 25 Q 25 5, 50 18 T 100 4"
-                      fill="none"
-                      stroke="#38BDF8"
-                      strokeWidth="2"
-                    />
-                    <path
-                      d="M0 25 Q 25 5, 50 18 T 100 4 L 100 30 L 0 30 Z"
-                      fill="rgba(56,189,248,0.15)"
-                    />
+                    <path d="M0 25 Q 25 5, 50 18 T 100 4" fill="none" stroke="#2563EB" strokeWidth="2" />
+                    <path d="M0 25 Q 25 5, 50 18 T 100 4 L 100 30 L 0 30 Z" fill="rgba(37,99,235,0.1)" />
                   </svg>
                 </div>
               </div>
@@ -310,18 +301,16 @@ export function TechStackSection() {
           <motion.div
             className="relative rounded-3xl p-7 lg:p-8 flex flex-col justify-between min-h-[260px] overflow-hidden group transition-all duration-300"
             style={{
-              background: 'rgba(15,23,42,0.7)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+              background: '#FFFFFF',
+              border: '1px solid rgba(15,23,42,0.08)',
+              boxShadow: '0 4px 20px rgba(15,23,42,0.06)',
             }}
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
             whileHover={{
-              borderColor: 'rgba(124,58,237,0.35)',
-              boxShadow: '0 12px 40px rgba(124,58,237,0.12)',
+              borderColor: 'rgba(124,58,237,0.25)',
+              boxShadow: '0 12px 40px rgba(124,58,237,0.1)',
               y: -4,
             }}
           >
@@ -329,9 +318,9 @@ export function TechStackSection() {
             <span
               className="w-fit px-3 py-1 rounded-full text-[11px] font-medium tracking-wide"
               style={{
-                background: 'rgba(124,58,237,0.12)',
-                border: '1px solid rgba(124,58,237,0.25)',
-                color: '#A78BFA',
+                background: 'rgba(124,58,237,0.08)',
+                border: '1px solid rgba(124,58,237,0.2)',
+                color: '#7C3AED',
                 fontFamily: "'Stack Sans Text', sans-serif",
               }}
             >
@@ -341,14 +330,14 @@ export function TechStackSection() {
             {/* Left Content */}
             <div className="max-w-[55%] z-10 my-4">
               <h3
-                className="text-xl font-bold mb-2 leading-snug group-hover:text-white transition-colors"
-                style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#F8FAFC' }}
+                className="text-xl font-bold mb-2 leading-snug"
+                style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#0F172A' }}
               >
                 24/7 Intelligent Monitoring
               </h3>
               <p
                 className="text-xs leading-relaxed"
-                style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif" }}
+                style={{ color: '#475569', fontFamily: "'Stack Sans Text', sans-serif" }}
               >
                 Continuous IoT sensor health monitoring and predictive maintenance alerts.
               </p>
@@ -359,20 +348,20 @@ export function TechStackSection() {
               <div
                 className="w-full p-3.5 rounded-2xl flex flex-col gap-2.5"
                 style={{
-                  background: 'rgba(5,8,22,0.85)',
-                  border: '1px solid rgba(124,58,237,0.25)',
-                  boxShadow: '0 8px 24px rgba(0,0,0,0.5)',
+                  background: '#FAF5FF',
+                  border: '1px solid rgba(124,58,237,0.18)',
+                  boxShadow: '0 4px 16px rgba(124,58,237,0.08)',
                 }}
               >
-                <div className="flex items-center justify-between text-[10px] text-gray-400 font-mono">
+                <div className="flex items-center justify-between text-[10px] font-mono" style={{ color: '#64748B' }}>
                   <span>SYSTEM HEALTH</span>
-                  <Activity size={12} className="text-violet-400" />
+                  <Activity size={12} style={{ color: '#7C3AED' }} />
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-sm font-bold text-white font-mono">100% ONLINE</span>
+                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="text-sm font-bold font-mono" style={{ color: '#0F172A' }}>100% ONLINE</span>
                 </div>
-                <div className="text-[10px] text-purple-300 font-mono bg-purple-950/40 p-1.5 rounded border border-purple-800/30">
+                <div className="text-[10px] font-mono p-1.5 rounded" style={{ color: '#7C3AED', background: 'rgba(124,58,237,0.07)', border: '1px solid rgba(124,58,237,0.15)' }}>
                   • MQTT Stream Connected<br />
                   • Predictive Alert: Normal
                 </div>
@@ -393,12 +382,12 @@ export function TechStackSection() {
             onClick={scrollToContact}
             className="flex items-center gap-2.5 px-8 py-3.5 rounded-full text-sm font-semibold transition-all"
             style={{
-              background: 'linear-gradient(135deg, #2563EB 0%, #1d4ed8 100%)',
-              color: '#F8FAFC',
+              background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)',
+              color: '#FFFFFF',
               fontFamily: "'Stack Sans Text', sans-serif",
-              boxShadow: '0 0 28px rgba(37,99,235,0.35)',
+              boxShadow: '0 4px 20px rgba(37,99,235,0.3)',
             }}
-            whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(37,99,235,0.55)' }}
+            whileHover={{ scale: 1.05, boxShadow: '0 6px 30px rgba(37,99,235,0.45)' }}
             whileTap={{ scale: 0.97 }}
           >
             Explore Capabilities

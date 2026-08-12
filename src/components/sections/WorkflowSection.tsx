@@ -15,14 +15,14 @@ const steps = [
     icon: Lightbulb,
     title: 'AI Strategy & Architecture',
     desc: 'Design the optimal technical approach: model selection, hardware platform, deployment topology, and integration architecture.',
-    color: '#38BDF8',
+    color: '#0EA5E9',
   },
   {
     number: '03',
     icon: Code2,
     title: 'Development & Training',
     desc: 'Iterative development with continuous validation. Data collection, model training, hardware integration, and rigorous testing.',
-    color: '#22C55E',
+    color: '#16A34A',
   },
   {
     number: '04',
@@ -36,7 +36,7 @@ const steps = [
     icon: LifeBuoy,
     title: 'Ongoing Support',
     desc: 'SLA-backed monitoring, model retraining as data evolves, performance optimization, and continuous improvement.',
-    color: '#F59E0B',
+    color: '#D97706',
   },
 ]
 
@@ -45,10 +45,10 @@ export function WorkflowSection() {
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section className="relative section-padding overflow-hidden" ref={ref}>
+    <section className="relative section-padding overflow-hidden" ref={ref} style={{ background: '#FFFFFF' }}>
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(15,23,42,0.8) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(37,99,235,0.03) 0%, transparent 70%)' }}
       />
 
       <div className="container-custom">
@@ -62,9 +62,9 @@ export function WorkflowSection() {
           <div
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs tracking-widest uppercase mb-6"
             style={{
-              background: 'rgba(37,99,235,0.1)',
-              border: '1px solid rgba(37,99,235,0.25)',
-              color: '#38BDF8',
+              background: 'rgba(37,99,235,0.07)',
+              border: '1px solid rgba(37,99,235,0.2)',
+              color: '#2563EB',
               fontFamily: "'Stack Sans Text', sans-serif",
             }}
           >
@@ -72,11 +72,11 @@ export function WorkflowSection() {
           </div>
           <h2
             className="text-4xl md:text-6xl font-bold mb-6"
-            style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#F8FAFC' }}
+            style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#0F172A' }}
           >
             Our{' '}
             <span style={{
-              background: 'linear-gradient(135deg, #2563EB, #38BDF8)',
+              background: 'linear-gradient(135deg, #1E40AF, #2563EB, #38BDF8)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -86,7 +86,7 @@ export function WorkflowSection() {
           </h2>
           <p
             className="text-lg max-w-2xl mx-auto"
-            style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif" }}
+            style={{ color: '#475569', fontFamily: "'Stack Sans Text', sans-serif" }}
           >
             A proven methodology that takes your vision from concept to production in the most efficient, risk-minimized path.
           </p>
@@ -97,7 +97,7 @@ export function WorkflowSection() {
           {/* Connecting line */}
           <div
             className="absolute left-[28px] md:left-1/2 top-0 bottom-0 w-px hidden sm:block"
-            style={{ background: 'linear-gradient(180deg, transparent, #2563EB 10%, #38BDF8 50%, #22C55E 90%, transparent)' }}
+            style={{ background: 'linear-gradient(180deg, transparent, #2563EB 10%, #0EA5E9 50%, #16A34A 90%, transparent)' }}
           />
 
           <div className="flex flex-col gap-8">
@@ -108,9 +108,7 @@ export function WorkflowSection() {
               return (
                 <motion.div
                   key={i}
-                  className={`flex items-center gap-6 md:gap-0 ${
-                    isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
-                  }`}
+                  className={`flex items-center gap-6 md:gap-0 ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'}`}
                   initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
                   animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.7, delay: i * 0.12 }}
@@ -120,41 +118,41 @@ export function WorkflowSection() {
                     <motion.div
                       className="p-6 rounded-2xl group"
                       style={{
-                        background: 'rgba(15,23,42,0.6)',
-                        border: '1px solid rgba(255,255,255,0.06)',
-                        backdropFilter: 'blur(20px)',
+                        background: '#FFFFFF',
+                        border: '1px solid rgba(15,23,42,0.08)',
+                        boxShadow: '0 2px 16px rgba(15,23,42,0.05)',
                       }}
                       whileHover={{
-                        borderColor: `${step.color}40`,
-                        boxShadow: `0 0 30px ${step.color}15`,
+                        borderColor: `${step.color}30`,
+                        boxShadow: `0 8px 30px ${step.color}12`,
                       }}
                     >
                       <div className="flex items-start gap-4">
                         <div
                           className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
                           style={{
-                            background: `${step.color}15`,
-                            border: `1px solid ${step.color}30`,
+                            background: `${step.color}10`,
+                            border: `1px solid ${step.color}25`,
                           }}
                         >
                           <Icon size={18} style={{ color: step.color }} />
                         </div>
                         <div>
                           <div
-                            className="text-xs tracking-widest mb-1"
+                            className="text-xs tracking-widest mb-1 font-semibold"
                             style={{ color: step.color, fontFamily: "'Stack Sans Text', sans-serif" }}
                           >
                             STEP {step.number}
                           </div>
                           <h3
-                            className="text-base font-semibold mb-2"
-                            style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#F8FAFC' }}
+                            className="text-base font-bold mb-2"
+                            style={{ fontFamily: "'Stack Sans Text', sans-serif", color: '#0F172A' }}
                           >
                             {step.title}
                           </h3>
                           <p
                             className="text-sm leading-relaxed"
-                            style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif" }}
+                            style={{ color: '#475569', fontFamily: "'Stack Sans Text', sans-serif" }}
                           >
                             {step.desc}
                           </p>
@@ -169,16 +167,13 @@ export function WorkflowSection() {
                       className="w-12 h-12 rounded-full flex items-center justify-center"
                       style={{
                         background: step.color,
-                        boxShadow: `0 0 20px ${step.color}60`,
+                        boxShadow: `0 0 20px ${step.color}50`,
                       }}
                       initial={{ scale: 0 }}
                       animate={inView ? { scale: 1 } : {}}
                       transition={{ duration: 0.4, delay: i * 0.12 + 0.3 }}
                     >
-                      <span
-                        className="text-xs font-bold text-white"
-                        style={{ fontFamily: "'Stack Sans Text', sans-serif" }}
-                      >
+                      <span className="text-xs font-bold text-white" style={{ fontFamily: "'Stack Sans Text', sans-serif" }}>
                         {step.number}
                       </span>
                     </motion.div>

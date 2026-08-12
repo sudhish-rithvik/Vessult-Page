@@ -37,11 +37,11 @@ export function StatsSection() {
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section className="relative py-20 overflow-hidden" ref={ref}>
-      {/* Divider line */}
+    <section className="relative py-20 overflow-hidden" ref={ref} style={{ background: '#F8FAFC' }}>
+      {/* Top divider */}
       <div
         className="absolute top-0 left-0 right-0 h-px"
-        style={{ background: 'linear-gradient(90deg, transparent, rgba(37,99,235,0.4), rgba(56,189,248,0.4), transparent)' }}
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(37,99,235,0.25), rgba(56,189,248,0.25), transparent)' }}
       />
 
       <div className="container-custom">
@@ -56,28 +56,29 @@ export function StatsSection() {
               key={i}
               className="relative flex flex-col items-center text-center p-6 rounded-2xl group hover-lift"
               style={{
-                background: 'rgba(15,23,42,0.4)',
-                border: '1px solid rgba(255,255,255,0.06)',
+                background: '#FFFFFF',
+                border: '1px solid rgba(37,99,235,0.1)',
+                boxShadow: '0 2px 12px rgba(15,23,42,0.05)',
               }}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               whileHover={{
-                borderColor: 'rgba(37,99,235,0.4)',
-                boxShadow: '0 0 30px rgba(37,99,235,0.15)',
+                borderColor: 'rgba(37,99,235,0.3)',
+                boxShadow: '0 8px 30px rgba(37,99,235,0.12)',
               }}
             >
               {/* Glow on hover */}
               <div
                 className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                style={{ background: 'radial-gradient(circle at 50% 0%, rgba(37,99,235,0.1) 0%, transparent 70%)' }}
+                style={{ background: 'radial-gradient(circle at 50% 0%, rgba(37,99,235,0.05) 0%, transparent 70%)' }}
               />
 
               <div
                 className="text-4xl lg:text-5xl font-bold mb-2"
                 style={{
                   fontFamily: "'Stack Sans Text', sans-serif",
-                  background: 'linear-gradient(135deg, #F8FAFC 0%, #38BDF8 100%)',
+                  background: 'linear-gradient(135deg, #1E40AF 0%, #2563EB 50%, #38BDF8 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
@@ -88,7 +89,7 @@ export function StatsSection() {
 
               <div
                 className="text-sm font-semibold mb-1"
-                style={{ color: '#F8FAFC', fontFamily: "'Stack Sans Text', sans-serif" }}
+                style={{ color: '#0F172A', fontFamily: "'Stack Sans Text', sans-serif" }}
               >
                 {stat.label}
               </div>
@@ -103,7 +104,7 @@ export function StatsSection() {
               {/* Bottom accent */}
               <div
                 className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-px opacity-0 group-hover:opacity-100 transition-all duration-500"
-                style={{ background: 'linear-gradient(90deg, #2563EB, #38BDF8)', boxShadow: '0 0 8px #38BDF8' }}
+                style={{ background: 'linear-gradient(90deg, #2563EB, #38BDF8)' }}
               />
             </motion.div>
           ))}
@@ -112,7 +113,7 @@ export function StatsSection() {
 
       <div
         className="absolute bottom-0 left-0 right-0 h-px"
-        style={{ background: 'linear-gradient(90deg, transparent, rgba(37,99,235,0.4), rgba(56,189,248,0.4), transparent)' }}
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(37,99,235,0.25), rgba(56,189,248,0.25), transparent)' }}
       />
     </section>
   )

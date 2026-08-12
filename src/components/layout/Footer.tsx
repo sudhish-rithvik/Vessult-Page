@@ -13,12 +13,15 @@ export function Footer() {
   return (
     <footer
       className="relative pt-20 pb-8 overflow-hidden"
-      style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
+      style={{
+        background: '#F8FAFC',
+        borderTop: '1px solid rgba(37,99,235,0.1)',
+      }}
     >
-      {/* Background */}
+      {/* Ambient background */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 60% 30% at 50% 0%, rgba(37,99,235,0.04) 0%, transparent 60%)' }}
+        style={{ background: 'radial-gradient(ellipse 60% 30% at 50% 0%, rgba(37,99,235,0.03) 0%, transparent 60%)' }}
       />
 
       <div className="container-custom relative z-10">
@@ -50,14 +53,14 @@ export function Footer() {
                   href={href}
                   className="w-9 h-9 rounded-lg flex items-center justify-center"
                   style={{
-                    background: 'rgba(255,255,255,0.04)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    color: '#64748B',
+                    background: '#FFFFFF',
+                    border: '1px solid rgba(37,99,235,0.15)',
+                    color: '#94A3B8',
                   }}
                   whileHover={{
                     borderColor: 'rgba(37,99,235,0.4)',
-                    color: '#38BDF8',
-                    boxShadow: '0 0 15px rgba(37,99,235,0.2)',
+                    color: '#2563EB',
+                    boxShadow: '0 0 12px rgba(37,99,235,0.15)',
                     y: -2,
                   }}
                 >
@@ -72,7 +75,7 @@ export function Footer() {
             <div key={category}>
               <h4
                 className="text-sm font-semibold mb-4"
-                style={{ color: '#F8FAFC', fontFamily: "'Stack Sans Text', sans-serif" }}
+                style={{ color: '#0F172A', fontFamily: "'Stack Sans Text', sans-serif" }}
               >
                 {category}
               </h4>
@@ -82,9 +85,9 @@ export function Footer() {
                     <a
                       href="#"
                       className="text-sm transition-colors duration-200"
-                      style={{ color: '#64748B', fontFamily: "'Stack Sans Text', sans-serif" }}
-                      onMouseEnter={e => { (e.target as HTMLElement).style.color = '#94A3B8' }}
-                      onMouseLeave={e => { (e.target as HTMLElement).style.color = '#64748B' }}
+                      style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif" }}
+                      onMouseEnter={e => { (e.target as HTMLElement).style.color = '#2563EB' }}
+                      onMouseLeave={e => { (e.target as HTMLElement).style.color = '#94A3B8' }}
                     >
                       {link}
                     </a>
@@ -98,14 +101,14 @@ export function Footer() {
         {/* Divider */}
         <div
           className="h-px mb-8"
-          style={{ background: 'linear-gradient(90deg, transparent, rgba(37,99,235,0.3), rgba(56,189,248,0.3), transparent)' }}
+          style={{ background: 'linear-gradient(90deg, transparent, rgba(37,99,235,0.2), rgba(56,189,248,0.2), transparent)' }}
         />
 
         {/* Bottom row */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p
             className="text-xs"
-            style={{ color: '#475569', fontFamily: "'Stack Sans Text', sans-serif" }}
+            style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif" }}
           >
             © {new Date().getFullYear()} Vessult Systems. All rights reserved.
           </p>
@@ -117,7 +120,7 @@ export function Footer() {
             />
             <span
               className="text-xs"
-              style={{ color: '#475569', fontFamily: "'Stack Sans Text', sans-serif" }}
+              style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif" }}
             >
               All systems operational
             </span>
@@ -125,7 +128,7 @@ export function Footer() {
 
           <div
             className="text-xs"
-            style={{ color: '#475569', fontFamily: "'Stack Sans Text', sans-serif" }}
+            style={{ color: '#94A3B8', fontFamily: "'Stack Sans Text', sans-serif" }}
           >
             Engineering Intelligent Vision ◆ Since 2018
           </div>
