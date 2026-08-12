@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import { ArrowRight, Star } from 'lucide-react'
 
 export function HeroSection() {
-  const scrollToSolutions = () =>
-    document.querySelector('#solutions')?.scrollIntoView({ behavior: 'smooth' })
-  const scrollToContact = () =>
-    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })
+  const navigate = useNavigate()
+  const scrollToSolutions = () => navigate('/solutions')
+  const scrollToContact = () => navigate('/contact')
 
   return (
     <section

@@ -1,45 +1,30 @@
-import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 // @ts-ignore
 import PillNav from './PillNav'
 
 const NAV_ITEMS = [
-  { href: '#home',         label: 'Home'         },
-  { href: '#about',        label: 'About'         },
-  { href: '#solutions',    label: 'Solutions'     },
-  { href: '#industries',   label: 'Industries'    },
-  { href: '#projects',     label: 'Projects'      },
-  { href: '#technologies', label: 'Technologies'  },
-  { href: '#contact',      label: 'Contact'       },
+  { href: '/',              label: 'Home'         },
+  { href: '/solutions',     label: 'Solutions'    },
+  { href: '/industries',    label: 'Industries'   },
+  { href: '/projects',      label: 'Projects'     },
+  { href: '/technologies',  label: 'Technologies' },
+  { href: '/contact',       label: 'Contact'      },
 ]
 
 /**
- * Navbar — wraps PillNav with intersection-observer active-section tracking.
+ * Navbar — wraps PillNav with route-based active state tracking.
+ * Active item is determined by matching the current pathname.
  */
 export function Navbar() {
-  const [activeHref, setActiveHref] = useState('#home')
+  const { pathname } = useLocation()
 
-  /* Track which section is in view */
-  useEffect(() => {
-    const sectionIds = NAV_ITEMS.map(i => i.href.replace('#', ''))
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setActiveHref(`#${entry.target.id}`)
-          }
-        })
-      },
-      { threshold: 0.35 }
-    )
-
-    sectionIds.forEach(id => {
-      const el = document.getElementById(id)
-      if (el) observer.observe(el)
-    })
-
-    return () => observer.disconnect()
-  }, [])
+  // Match active nav item: exact match for '/', startsWith for all others
+  const activeHref =
+    NAV_ITEMS.find(item =>
+      item.href === '/'
+        ? pathname === '/'
+        : pathname.startsWith(item.href)
+    )?.href ?? '/'
 
   return (
     <PillNav

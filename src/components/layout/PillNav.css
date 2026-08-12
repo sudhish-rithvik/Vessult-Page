@@ -50,34 +50,34 @@
 
 /* ─── Logo bubble ────────────────────────────────────────────────── */
 .pill-logo {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  padding: 3px;
+  height: 38px;
+  padding: 4px 14px 4px 10px;
+  border-radius: 9999px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  background: rgba(15, 23, 42, 0.9);
+  background: rgba(15, 23, 42, 0.85);
   border: 1.5px solid rgba(56, 189, 248, 0.45);
   box-shadow: 0 0 14px rgba(56, 189, 248, 0.35);
   flex-shrink: 0;
   transition: all 0.35s ease;
   z-index: 10;
+  margin-right: 4px;
 }
 
 .pill-logo:hover {
-  background: rgba(37, 99, 235, 0.4);
+  background: rgba(37, 99, 235, 0.35);
   border-color: rgba(56, 189, 248, 0.8);
   box-shadow: 0 0 24px rgba(56, 189, 248, 0.6);
 }
 
 .pill-logo img {
-  width: 100%;
-  height: 100%;
+  height: 26px;
+  width: auto;
+  max-width: 120px;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.5));
+  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.5));
 }
 
 /* ─── Items strip (desktop) ──────────────────────────────────────── */

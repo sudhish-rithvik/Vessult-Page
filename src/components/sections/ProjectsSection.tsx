@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { ShieldCheck, Cpu, Network, ArrowRight, Sparkles } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const featuredProjects = [
   {
@@ -36,9 +37,8 @@ export function ProjectsSection() {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
-  const scrollToContact = () => {
-    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })
-  }
+  const navigate = useNavigate()
+  const scrollToContact = () => navigate('/contact')
 
   return (
     <section id="projects" className="relative py-24 overflow-hidden" ref={ref}>

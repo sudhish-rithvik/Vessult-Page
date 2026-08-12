@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { gsap } from 'gsap';
 import GlassSurface from '../effects/GlassSurface';
 import './PillNav.css';
 
 /**
- * PillNav — liquid-glass floating navbar powered by React Bits GlassSurface
+ * PillNav — liquid-glass floating navbar powered by React Bits GlassSurface.
+ * Navigation uses React Router Link/useNavigate for proper multi-page routing.
  */
 const PillNav = ({
   logo = '/logo.png',
@@ -18,13 +20,14 @@ const PillNav = ({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentActive, setCurrentActive] = useState(activeHref);
 
+  const navigate = useNavigate();
   const hamburgerRef  = useRef(null);
   const mobileMenuRef = useRef(null);
   const navItemsRef   = useRef(null);
   const logoRef       = useRef(null);
   const logoImgRef    = useRef(null);
 
-  /* Sync active prop changes (from IntersectionObserver in Navbar) */
+  /* Sync active prop changes (from useLocation in Navbar) */
   useEffect(() => {
     setCurrentActive(activeHref);
   }, [activeHref]);
@@ -38,41 +41,35 @@ const PillNav = ({
     if (!initialLoadAnimation) return;
 
     if (logoRef.current) {
-      gsap.from(logoRef.current, { scale: 0.7, opacity: 0, duration: 0.6, ease, delay: 0.1 });
+      gsap.fromTo(logoRef.current, { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease, delay: 0.1 });
     }
   }, [ease, initialLoadAnimation]);
 
-  /* ── Logo hover: gentle rotation ─────────────────────────────── */
+  /* ── Logo hover: gentle scale ─────────────────────────────── */
   const logoTweenRef = useRef(null);
   const handleLogoEnter = () => {
     if (!logoImgRef.current) return;
     logoTweenRef.current?.kill();
     logoTweenRef.current = gsap.to(logoImgRef.current, {
-      rotate: 360,
-      duration: 0.7,
-      ease: 'power1.inOut',
+      scale: 1.08,
+      duration: 0.3,
+      ease: 'power1.out',
     });
   };
   const handleLogoLeave = () => {
     logoTweenRef.current?.kill();
     logoTweenRef.current = gsap.to(logoImgRef.current, {
-      rotate: 0,
-      duration: 0.5,
+      scale: 1,
+      duration: 0.3,
       ease: 'power1.out',
     });
   };
 
-  /* ── Smooth scroll & active state ────────────────────────────── */
-  const handleNavClick = (href, e) => {
-    if (e) e.preventDefault();
+  /* ── Route navigation & active state ─────────────────────────── */
+  const handleNavClick = (href) => {
     setCurrentActive(href);
     if (isMobileMenuOpen) toggleMobileMenu();
-
-    const targetId = href.replace('#', '');
-    const el = document.getElementById(targetId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    navigate(href);
   };
 
   /* ── Mobile menu toggle ──────────────────────────────────────── */
@@ -118,13 +115,12 @@ const PillNav = ({
         >
           <nav className={`pill-nav ${className}`} aria-label="Primary">
             {/* Logo */}
-            <a
+            <Link
               className="pill-logo"
-              href={items?.[0]?.href || '#home'}
+              to={items?.[0]?.href || '/'}
               aria-label="Vessult Home"
               onMouseEnter={handleLogoEnter}
               onMouseLeave={handleLogoLeave}
-              onClick={(e) => handleNavClick(items?.[0]?.href || '#home', e)}
               ref={logoRef}
             >
               <img
@@ -133,22 +129,22 @@ const PillNav = ({
                 ref={logoImgRef}
                 className="w-full h-full object-contain p-0.5"
               />
-            </a>
+            </Link>
 
             {/* Desktop pill items */}
             <div className="pill-nav-items desktop-only" ref={navItemsRef}>
               <ul className="pill-list" role="menubar">
                 {items.map((item, i) => (
                   <li key={item.href || `item-${i}`} role="none">
-                    <a
+                    <Link
                       role="menuitem"
-                      href={item.href}
+                      to={item.href}
                       className={`pill${currentActive === item.href ? ' is-active' : ''}`}
                       aria-label={item.ariaLabel || item.label}
-                      onClick={(e) => handleNavClick(item.href, e)}
+                      onClick={() => handleNavClick(item.href)}
                     >
                       <span className="pill-text">{item.label}</span>
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -175,13 +171,13 @@ const PillNav = ({
           <ul className="mobile-list">
             {items.map((item, i) => (
               <li key={item.href || `mobile-${i}`}>
-                <a
-                  href={item.href}
+                <Link
+                  to={item.href}
                   className={`mobile-link${currentActive === item.href ? ' is-active' : ''}`}
-                  onClick={(e) => handleNavClick(item.href, e)}
+                  onClick={() => handleNavClick(item.href)}
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

@@ -1,14 +1,14 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { ArrowRight, Bot, Zap, Activity, TrendingUp, CheckCircle2 } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 export function TechStackSection() {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
-  const scrollToContact = () => {
-    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })
-  }
+  const navigate = useNavigate()
+  const scrollToContact = () => navigate('/contact')
 
   return (
     <section id="technologies" className="relative py-24 overflow-hidden" ref={ref}>
